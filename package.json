@@ -1,0 +1,17 @@
+{
+  "name": "vue-smart-table",
+  "version": "0.0.1",
+  "description": "Vue component for displaying tables",
+  "main": "index.js",
+  "scripts": {
+    "build": "vue-cli-service build"
+  },
+  "keywords": [
+    "vue", "table", "grid", "component", "vuejs"
+  ],
+  "author": "gariev do aka dk1gdo",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

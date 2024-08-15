@@ -1,0 +1,55 @@
+* {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style for table */
+.smart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style for table sections */
+.smart-table > thead,
+.smart-table > tbody {
+    display: block;
+    width: 100%;
+}
+
+.smart-table > tbody {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.smart-table > thead > tr,
+.smart-table > tbody > tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Ensures equal width for table columns */
+}
+
+/* Style for caption */
+.smart-table > caption {
+    text-align: start;
+}
+
+/* Style for table-header cells */
+.smart-table > thead > tr > th {
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for table-body rows */
+.smart-table > tbody > tr:nth-child(odd) {
+    background-color: #f6f6f6;
+
+}
+
+/* Style for table-body cells */
+.smart-table > tbody > tr > td {
+    padding: 8px;
+}
+
+.smart-table-th {
+    display: flex;
+    justify-content: space-between;
+}
