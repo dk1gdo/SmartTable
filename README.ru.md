@@ -1,12 +1,12 @@
 # Smart Table
 
-A component for displaying tables in Vue JS applications.
+Компонент для отображения таблиц в приложениях на Vue JS.
 
-## Usage
+## Использование
 
-### Static Data
+### Статические данные
 
-Example usage:
+Пример использования:
 
 ```vue
 
@@ -16,7 +16,7 @@ import SmartTable from "SmartTable";
 const columns = ref([
 {
   field: "name",
-  label: "Name",
+  label: "Имя",
 },
 {
   field: "email",
@@ -24,11 +24,11 @@ const columns = ref([
 },
 {
   field: "phone",
-  label: "Phone",
+  label: "Телефон",
 },
 {
   field: "address",
-  label: "Address",
+  label: "Адрес",
 }
 ]);
 
@@ -55,7 +55,7 @@ const rows = ref([
 </script>
 <template>
   <smart-table
-      caption="Test Table"
+      caption="Тестовая таблица"
       :columns="columns"
       :rows="rows"/>
 </template>
