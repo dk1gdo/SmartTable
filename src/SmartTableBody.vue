@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   rows: {
     type: Array,
     required: true,
@@ -14,9 +14,9 @@ const props = defineProps({
 <template>
 <tbody>
  <tr v-for="row in rows">
-   <td v-for="column in columns">{{ row[column] }}</td>
-
-<!--    <td v-for="cell in row">{{ cell }}</td>-->
+   <td v-for="column in columns">
+     {{ typeof column === "function" ? column(row) : row[column] }}
+   </td>
   </tr>
 </tbody>
 </template>

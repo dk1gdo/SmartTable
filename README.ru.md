@@ -2,64 +2,62 @@
 
 Компонент для отображения таблиц в приложениях на Vue JS.
 
-## Использование
+## Входные параметры
 
-### Статические данные
+Компонет принимает следующие входные параметры: 
 
-Пример использования:
+### columns
+
+**Тип:** *Array*,
+**Обязаательный:** *да*
+
+Принимает массив объектов, которые содержат информацию о столбцах таблицы.
+
+Пример входных данных:
 
 ```vue
-
-<script setup>
-import SmartTable from "SmartTable";
-
 const columns = ref([
-{
-  field: "name",
-  label: "Имя",
-},
-{
-  field: "email",
-  label: "Email",
-},
-{
-  field: "phone",
-  label: "Телефон",
-},
-{
-  field: "address",
-  label: "Адрес",
-}
+    {
+        field: 'name',
+        label: 'Name',
+    },
+]);
+```
+Базовый объект содержит два поля: `field` и `label`
+
+- `field` - имя свойства в объекте строки
+- `label` - отображаемый тест в шапке таблицы
+
+`field`, также может быть функцией, которая будет вычислять столбец на основании данных строки. В таком случае, пример передачи будет выглядеть следующим образом:
+
+```vue
+const columns = ref([
+    {
+        field: setUppercase,
+        label: 'Name',
+    },
 ]);
 
+const setUppercase = (row) => {
+    return row.name.toUpperCase();
+}
+```
+
+
+
+### rows
+
+**Тип:** *Array*, **Обязаательный:** *да*
+
+Принимает массив объектов. Подразумевается, что каждый объект в массиве является строкой таблицы, таким образом 
+свойства объектов в массиве должны соответствовать полям `field` в массиве `columns` или содержать свойства 
+на которые ссылается функция для вычисления столбца.
+
+Пример:
+
+
+```vue
 const rows = ref([
-    {
-      name: "John",
-      email: "john@example.com",
-      phone: "1234",
-      address: "1234",
-    },
-    {
-      name: "Tom",
-      email: "tom@example.com",
-      phone: "1234",
-      address: "1234",
-    },
-    {
-      name: "Harry",
-      email: "harry@example.com",
-      phone: "1234",
-      address: "1234",
-    }
-  ])
-</script>
-<template>
-  <smart-table
-      caption="Тестовая таблица"
-      :columns="columns"
-      :rows="rows"/>
-</template>
-<style scoped>
-  
-</style>
+{ name: "John", email: "john@example.com", phone: "1234", address: "1234",},
+]);
 ```

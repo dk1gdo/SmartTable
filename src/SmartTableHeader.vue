@@ -1,6 +1,5 @@
 <script setup>
 import SmartTableDropdown from "@/components/SmartTable/src/SmartTableDropdown.vue";
-import {ref} from "vue";
 import SmartTableFilter from "@/components/SmartTable/src/SmartTableFilters/SmartTableFilter.vue";
 
 defineProps({
@@ -26,7 +25,7 @@ function filterFunction(value) {
         <div class="smart-table-th">
           {{ column.label }}
           <smart-table-dropdown v-if="column?.filter?.enabled">
-            <template v-slot:dropdown>
+            <template #dropdown>
               <smart-table-filter :field="column.field" @apply="filterFunction"/>
             </template>
           </smart-table-dropdown>
