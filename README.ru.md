@@ -61,3 +61,33 @@ const rows = ref([
 { name: "John", email: "john@example.com", phone: "1234", address: "1234",},
 ]);
 ```
+
+### sort
+
+**Тип:** *Boolean*,  
+**Обязательный:** *Нет*
+
+Компонент поддерживает сортировку данных по столбцам. Для включения сортировки необходимо передать проп `sort` со значением `true`.
+
+Пример:
+
+```vue
+<SmartTable :columns="columns" :rows="rows" :sort="true" />
+```
+
+Вы также можете кастомизировать логику сортировки, передав проп `sortFunction`. По умолчанию, функция сортирует значения столбца по возрастанию или убыванию. Если вам нужна собственная сортировка, функция `sortFunction` должна принимать два параметра: массив строк и параметры сортировки.
+
+Пример:
+
+```vue
+const customSortFunction = (rows, params) => {
+  if (!params || params.sortType === 'none') return rows;
+
+  const sortedRows = [...rows];
+  const sortDirection = params.sortType === 'asc' ? 1 : -1;
+  
+  return sortedRows.sort((a, b) => (a[params.column] > b[params.column] ? 1 : -1) * sortDirection);
+};
+
+<SmartTable :columns="columns" :rows="rows" :sort="true" :sortFunction="customSortFunction" />
+```
